@@ -1,3 +1,5 @@
+![DnSpy 6.1.8 — archive copy](.github/social-preview.png)
+
 # dnSpy 6.1.8 — Archive Copy
 
 This repository is a **backup** of the dnSpy v6.1.8 release files, kept in case the upstream downloads are ever removed. Nothing here has been modified.
