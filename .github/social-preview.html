@@ -1,0 +1,137 @@
+<!doctype html>
+<meta charset="utf-8">
+<title>DnSpy social preview</title>
+<style>
+  @page { margin: 0 }
+  * { margin: 0; padding: 0; box-sizing: border-box }
+  html, body { width: 1280px; height: 640px; overflow: hidden }
+  body {
+    background: #14161a;
+    background-image:
+      radial-gradient(900px 500px at 78% 18%, rgba(70,130,190,.20), transparent 62%),
+      radial-gradient(700px 520px at 6% 96%, rgba(140,95,190,.14), transparent 60%);
+    color: #e8ecf1;
+    font-family: "Segoe UI", system-ui, sans-serif;
+    display: flex;
+    align-items: center;
+    gap: 56px;
+    padding: 0 68px;
+    position: relative;
+  }
+  /* faint grid */
+  body::before {
+    content: ""; position: absolute; inset: 0;
+    background-image:
+      linear-gradient(rgba(255,255,255,.028) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(255,255,255,.028) 1px, transparent 1px);
+    background-size: 64px 64px;
+    mask-image: radial-gradient(1000px 600px at 50% 40%, #000 30%, transparent 85%);
+  }
+  .left { width: 560px; position: relative; flex: none }
+
+  .kicker {
+    display: inline-block;
+    font-size: 19px; font-weight: 600; letter-spacing: .16em; text-transform: uppercase;
+    color: #8fb7dd;
+    border: 1px solid rgba(143,183,221,.38);
+    border-radius: 999px;
+    padding: 8px 18px;
+    margin-bottom: 30px;
+  }
+  h1 {
+    font-size: 104px; line-height: .96; font-weight: 700; letter-spacing: -.035em;
+    color: #fff;
+  }
+  h1 .dim { color: #7f95ad }
+  .ver {
+    margin-top: 20px;
+    font-family: Consolas, "Cascadia Mono", monospace;
+    font-size: 31px; color: #9fd3a8; letter-spacing: .01em;
+  }
+  .tag {
+    margin-top: 26px; font-size: 27px; line-height: 1.45; color: #aab8c6; max-width: 520px;
+  }
+  .foot {
+    position: absolute; bottom: -132px; left: 0;
+    display: flex; align-items: center; gap: 14px;
+    font-size: 22px; color: #7d8b9a;
+  }
+  .foot .dot { width: 7px; height: 7px; border-radius: 50%; background: #4a5a6b }
+
+  /* right: window mock */
+  .win {
+    flex: 1; position: relative;
+    background: #1b1f25;
+    border: 1px solid rgba(255,255,255,.10);
+    border-radius: 13px;
+    box-shadow: 0 34px 70px rgba(0,0,0,.55);
+    overflow: hidden;
+  }
+  .bar {
+    height: 46px; display: flex; align-items: center; gap: 9px; padding: 0 17px;
+    background: #23282f; border-bottom: 1px solid rgba(255,255,255,.07);
+  }
+  .bar i { width: 12px; height: 12px; border-radius: 50%; display: block }
+  .bar .t {
+    margin-left: 13px; font-size: 17px; color: #93a2b2;
+    font-family: Consolas, "Cascadia Mono", monospace;
+  }
+  .code {
+    padding: 24px 26px 26px;
+    font-family: Consolas, "Cascadia Mono", monospace;
+    font-size: 18px; line-height: 1.75; white-space: pre;
+  }
+  .k { color: #66a7e0 }   /* keyword  */
+  .t { color: #57c3b0 }   /* type     */
+  .m { color: #dcdcaa }   /* method   */
+  .s { color: #cf9178 }   /* string   */
+  .n { color: #b5cea8 }   /* number   */
+  .c { color: #6b8a5f }   /* comment  */
+  .p { color: #d4d4d4 }   /* plain    */
+
+  .files {
+    border-top: 1px solid rgba(255,255,255,.07);
+    background: #191d22;
+    padding: 15px 26px 17px;
+    display: flex; flex-wrap: wrap; gap: 9px;
+  }
+  .chip {
+    font-family: Consolas, "Cascadia Mono", monospace;
+    font-size: 15.5px; color: #9fb0c1;
+    background: rgba(255,255,255,.05);
+    border: 1px solid rgba(255,255,255,.08);
+    border-radius: 6px; padding: 5px 11px;
+  }
+</style>
+
+<div class="left">
+  <span class="kicker">Archive copy</span>
+  <h1>Dn<span class="dim">Spy</span></h1>
+  <div class="ver">v6.1.8</div>
+  <p class="tag">.NET debugger and assembly editor.<br>Release files mirrored for safe keeping.</p>
+  <div class="foot">
+    <span>dnSpyEx/dnSpy</span><span class="dot"></span><span>GPLv3</span><span class="dot"></span><span>Dec 2020</span>
+  </div>
+</div>
+
+<div class="win">
+  <div class="bar">
+    <i style="background:#e0605a"></i><i style="background:#e0b44a"></i><i style="background:#5fb85f"></i>
+    <span class="t">dnSpy.exe</span>
+  </div>
+<div class="code"><span class="k">private static bool</span> <span class="m">CheckLicense</span>(<span class="t">string</span> key)
+{
+<span class="c">    // 0x0600017A  RVA: 0x000A21C4</span>
+    <span class="k">if</span> (key == <span class="k">null</span> || key.<span class="p">Length</span> != <span class="n">24</span>)
+        <span class="k">return false</span>;
+
+    <span class="t">byte</span>[] buf = <span class="t">Convert</span>.<span class="m">FromBase64String</span>(key);
+    <span class="k">return</span> <span class="t">Hash</span>.<span class="m">Verify</span>(buf, <span class="s">"dnSpy"</span>);
+}</div>
+  <div class="files">
+    <span class="chip">dnSpy-net-win64.zip</span>
+    <span class="chip">dnSpy-net-win32.zip</span>
+    <span class="chip">dnSpy-netframework.zip</span>
+    <span class="chip">source</span>
+  </div>
+</div>
